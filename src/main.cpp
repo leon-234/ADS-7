@@ -39,6 +39,5 @@ int main() {
     experiment("off.csv", maxN, 0);
     experiment("on.csv", maxN, 1);
     experiment("random.csv", maxN, 2);
-}
     return 0;
 }
