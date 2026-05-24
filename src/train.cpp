@@ -10,6 +10,10 @@ Train::~Train() {
     if (!first) {
         return;
     }
+    if (first->next == first) {
+        delete first;
+        return;
+    }
     Car* current = first->next;
     while (current != first) {
         Car* temp = current;
@@ -20,7 +24,10 @@ Train::~Train() {
 }
 
 void Train::addCar(bool light) {
-    Car* car = new Car(light);
+    Car* car = new Car();
+    car->light = light;
+    car->next = nullptr;
+    car->prev = nullptr;
     if (!first) {
         first = car;
         first->next = first;
@@ -34,16 +41,12 @@ void Train::addCar(bool light) {
     first->prev = car;
 }
 
-void Train::resetOpCount() {
-    countOp = 0;
-}
-
-int Train::getOpCount() const {
+int Train::getOpCount() {
     return countOp;
 }
 
 int Train::getLength() {
-    resetOpCount();
+    countOp = 0;
     Car* start = first;
     start->light = false;
     int steps = 1;
