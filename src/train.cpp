@@ -6,23 +6,6 @@ Train::Train() {
     countOp = 0;
 }
 
-Train::~Train() {
-    if (!first) {
-        return;
-    }
-    if (first->next == first) {
-        delete first;
-        return;
-    }
-    Car* current = first->next;
-    while (current != first) {
-        Car* temp = current;
-        current = current->next;
-        delete temp;
-    }
-    delete first;
-}
-
 void Train::addCar(bool light) {
     Car* car = new Car();
     car->light = light;
