@@ -30,9 +30,9 @@ void experiment(const std::string& filename, int maxN, int mode) {
         }
         train.getLength();
         fout << n << "," << train.getOpCount() << std::endl;
-        std::cout << "n = " << n 
-            << " operations = " 
-            << train.getOpCount() 
+        std::cout << "n = " << n
+            << " operations = "
+            << train.getOpCount()
             << std::endl;
     }
     fout.close();
